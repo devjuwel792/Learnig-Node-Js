@@ -28,20 +28,31 @@ app.get("/", async (req, res) => {
 app.get("/show-content/:id", async (req, res) => {
   // const data = await Contact.findOne({ _id: req.params.id });
   const data = await Contact.findById(req.params.id);
-//  res.json(data);
-   res.render("show-content", { data });
+  //  res.json(data);
+  res.render("show-content", { data });
 });
 
 app.get("/add-content", (req, res) => {
   res.render("add-content");
 });
 
-app.get("/update-content/:id", (req, res) => {
-  res.render("update-content");
+app.get("/update-content/:id", async (req, res) => {
+  const data = await Contact.findById(req.params.id);
+  res.render("update-content", { data });
 });
 
 // POST
-app.post("/add-content", (req, res) => {});
+app.post("/add-content", async (req, res) => {
+  await Contact.insertOne({
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    email: req.body.email,
+    phone: req.body.phone,
+    address: req.body.address,
+  });
+
+  res.redirect("/");
+});
 
 app.post("/update-content", (req, res) => {});
 
