@@ -25,8 +25,11 @@ app.get("/", async (req, res) => {
   res.render("home", { data });
 });
 
-app.get("/show-content/:id", (req, res) => {
-  res.render("show-content");
+app.get("/show-content/:id", async (req, res) => {
+  // const data = await Contact.findOne({ _id: req.params.id });
+  const data = await Contact.findById(req.params.id);
+//  res.json(data);
+   res.render("show-content", { data });
 });
 
 app.get("/add-content", (req, res) => {
