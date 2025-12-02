@@ -54,6 +54,18 @@ app.post("/add-content", async (req, res) => {
   res.redirect("/");
 });
 
-app.post("/update-content", (req, res) => {});
+app.post("/update-content/:id", async (req, res) => {
+  await Contact.findByIdAndUpdate(req.params.id, {
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    email: req.body.email,
+    phone: req.body.phone,
+    address: req.body.address,
+  });
+   res.redirect("/");
+});
 
-app.post("/delete-content/:id", (req, res) => {});
+app.get("/delete-content/:id", async (req, res) => {
+  await Contact.findByIdAndDelete(req.params.id);
+  res.redirect("/");
+});
