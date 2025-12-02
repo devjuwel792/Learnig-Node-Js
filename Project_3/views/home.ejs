@@ -28,27 +28,28 @@
                 </tr>
               </thead>
               <tbody>
+                <% data.forEach((item,i) => { %>
                 <tr>
-                  <td>1</td>
-                  <td>Alfred</td>
-                  <td>Kuhlman</td>
-                  <td>alfred@test.com</td>
-                  <td>98989898</td>
+                  <td><%= i %></td>
+                  <td><%= item.first_name %></td>
+                  <td><%= item.last_name %></td>
+                  <td><%= item.email %></td>
+                  <td><%= item.phone %></td>
                   <td width="150">
                     <a
-                      href="/show-content"
+                      href="/show-content/<%= item._id %>"
                       class="btn btn-sm btn-circle btn-outline-info"
                       title="Show"
                       ><i class="fa fa-eye"></i
                     ></a>
                     <a
-                      href="/update-content"
+                      href="/update-content/<%= item._id %>"
                       class="btn btn-sm btn-circle btn-outline-secondary"
                       title="Edit"
                       ><i class="fa fa-edit"></i
                     ></a>
                     <a
-                      href="/delete-content"
+                      href="#"
                       class="btn btn-sm btn-circle btn-outline-danger"
                       title="Delete"
                       onclick="confirm('Are you sure?')"
@@ -56,118 +57,7 @@
                     ></a>
                   </td>
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Frederick</td>
-                  <td>Jerde</td>
-                  <td>frederick@test.com</td>
-                  <td>54545454</td>
-                  <td>
-                    <a
-                      href="/show-content"
-                      class="btn btn-sm btn-circle btn-outline-info"
-                      title="Show"
-                      ><i class="fa fa-eye"></i
-                    ></a>
-                    <a
-                      href="/update-content"
-                      class="btn btn-sm btn-circle btn-outline-secondary"
-                      title="Edit"
-                      ><i class="fa fa-edit"></i
-                    ></a>
-                    <a
-                      href="/delete-content"
-                      class="btn btn-sm btn-circle btn-outline-danger"
-                      title="Delete"
-                      onclick="confirm('Are you sure?')"
-                      ><i class="fa fa-times"></i
-                    ></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Joannie</td>
-                  <td>McLaughlin</td>
-                  <td>joannie@test.com</td>
-                  <td>75757575</td>
-                  <td>
-                    <a
-                      href="/show-content"
-                      class="btn btn-sm btn-circle btn-outline-info"
-                      title="Show"
-                      ><i class="fa fa-eye"></i
-                    ></a>
-                    <a
-                      href="/update-content"
-                      class="btn btn-sm btn-circle btn-outline-secondary"
-                      title="Edit"
-                      ><i class="fa fa-edit"></i
-                    ></a>
-                    <a
-                      href="/delete-content"
-                      class="btn btn-sm btn-circle btn-outline-danger"
-                      title="Delete"
-                      onclick="confirm('Are you sure?')"
-                      ><i class="fa fa-times"></i
-                    ></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Odie</td>
-                  <td>Koss</td>
-                  <td>odie@test.com</td>
-                  <td>64646464</td>
-                  <td>
-                    <a
-                      href="/show-content"
-                      class="btn btn-sm btn-circle btn-outline-info"
-                      title="Show"
-                      ><i class="fa fa-eye"></i
-                    ></a>
-                    <a
-                      href="/update-content"
-                      class="btn btn-sm btn-circle btn-outline-secondary"
-                      title="Edit"
-                      ><i class="fa fa-edit"></i
-                    ></a>
-                    <a
-                      href="/delete-content"
-                      class="btn btn-sm btn-circle btn-outline-danger"
-                      title="Delete"
-                      onclick="confirm('Are you sure?')"
-                      ><i class="fa fa-times"></i
-                    ></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Edna</td>
-                  <td>Ondricka</td>
-                  <td>edna@test.com</td>
-                  <td>58595858</td>
-                  <td>
-                    <a
-                      href="/show-content"
-                      class="btn btn-sm btn-circle btn-outline-info"
-                      title="Show"
-                      ><i class="fa fa-eye"></i
-                    ></a>
-                    <a
-                      href="/update-content"
-                      class="btn btn-sm btn-circle btn-outline-secondary"
-                      title="Edit"
-                      ><i class="fa fa-edit"></i
-                    ></a>
-                    <a
-                      href="/delete-content"
-                      class="btn btn-sm btn-circle btn-outline-danger"
-                      title="Delete"
-                      onclick="confirm('Are you sure?')"
-                      ><i class="fa fa-times"></i
-                    ></a>
-                  </td>
-                </tr>
+                <% }) %>
               </tbody>
             </table>
           </div>
