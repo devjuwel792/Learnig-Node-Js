@@ -1,6 +1,6 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const Contact = require("./models/contacts.model.js");
+import express from "express";
+import mongoose from "mongoose";
+import Contact from "./models/contacts.model.js";
 
 const app = express();
 const port = 5000;
@@ -62,7 +62,7 @@ app.post("/update-content/:id", async (req, res) => {
     phone: req.body.phone,
     address: req.body.address,
   });
-   res.redirect("/");
+  res.redirect("/");
 });
 
 app.get("/delete-content/:id", async (req, res) => {
