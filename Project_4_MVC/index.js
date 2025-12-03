@@ -3,13 +3,13 @@ import ContactRoutes from "./routes/contacts.route.js";
 import connectDB from "./config/database.js";
 
 const app = express();
-const port = 5000;
+const { PORT } = process.env;
 
 // Database
 connectDB();
 
 // server
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
 
 // Middleware
 

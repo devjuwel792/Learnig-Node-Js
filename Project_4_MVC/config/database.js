@@ -1,7 +1,11 @@
+import dotenv from "dotenv";
 import mongoose from "mongoose";
+dotenv.config();
+
 // Database Connection
+const { MONGO_URL } = process.env;
 const connectDB = () => {
-  mongoose.connect("mongodb://127.0.0.1:27017/contacts-crud").then(() => {
+  mongoose.connect(MONGO_URL).then(() => {
     console.log("Database Connected.");
   });
 };
