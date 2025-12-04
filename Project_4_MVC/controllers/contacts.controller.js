@@ -28,12 +28,13 @@ export const showContacts = async (req, res) => {
 
   let paramId = mongoose.Types.ObjectId.isValid(req.params.id);
 
-  if (!paramId) {
-    res.render("404", {
-      message: "The page you are looking for does not exist.",
-    });
-  }
   try {
+    if (!paramId) {
+
+      res.render("404", {
+        message: "The page you are looking for does not exist.",
+      });
+    }
     const data = await Contact.findById(req.params.id);
     if (!data) {
       res.render("404", {
