@@ -8,12 +8,13 @@ import {
   updateContact,
   updateContactPage,
 } from "../controllers/contacts.controller.js";
+import { contactMiddleware } from "../middleware/contacts.middleware.js";
 
 const router = express.Router();
-
+// router.use(contactMiddleware);
 router.get("/", getContacts);
 router.get("/show-content/:id", showContacts);
-router.get("/add-content", addContactPage);
+router.get("/add-content",contactMiddleware, addContactPage);
 router.get("/update-content/:id", updateContactPage);
 router.post("/add-content", addContact);
 router.post("/update-content/:id", updateContact);

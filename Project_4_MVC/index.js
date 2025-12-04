@@ -12,12 +12,11 @@ connectDB();
 // server
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
 
-// Middleware
+// application Middleware
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
-
-app.use(contactMiddleware);
+// app.use(contactMiddleware);
 
 // Routers
 app.use("/", ContactRoutes);
