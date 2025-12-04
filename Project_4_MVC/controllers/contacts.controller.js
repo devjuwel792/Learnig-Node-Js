@@ -16,8 +16,8 @@ export const getContacts = async (req, res) => {
         message: "The page you are looking for does not exist.",
       });
     }
-   //     res.json({data});
-  res.render("home", { ...data });
+    //     res.json({data});
+    res.render("home", { ...data });
   } catch (error) {
     res.render("500", { message: error });
   }
