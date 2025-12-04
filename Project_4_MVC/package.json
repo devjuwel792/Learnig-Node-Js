@@ -1,5 +1,5 @@
 {
-  "name": "project_3",
+  "name": "project_4",
   "version": "1.0.0",
   "description": "",
   "license": "ISC",
@@ -15,6 +15,7 @@
     "ejs": "^3.1.10",
     "express": "^5.2.1",
     "mongoose": "^9.0.0",
+    "mongoose-paginate-v2": "^1.9.1",
     "nodemon": "^3.1.11"
   }
 }

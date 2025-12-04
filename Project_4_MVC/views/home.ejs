@@ -28,7 +28,7 @@
                 </tr>
               </thead>
               <tbody>
-                <% data.forEach((item,i) => { %>
+                <% docs.forEach((item,i) => { %>
                 <tr>
                   <td><%= i %></td>
                   <td><%= item.first_name %></td>
@@ -60,6 +60,27 @@
                 <% }) %>
               </tbody>
             </table>
+
+            <nav class="">
+              <ul class="pagination justify-content-center">
+                <% let disableClass; if (hasPrevPage) { disableClass="" } else{
+                disableClass="disabled" } %>
+                <li class="page-item <%= disableClass%>">
+                  <a href="?page=<%= %>" class="page-link">Previous</a>
+                </li>
+                <% Array.from({ length: totalPages }).forEach((_, i) => { %>
+                <li class="page-item">
+                  <a class="page-link" href="?page=<%= i + 1 %>"
+                    ><%= i + 1 %></a
+                  >
+                </li>
+                <% }) %>
+
+                <li class="page-item">
+                  <a class="page-link" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
