@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import Contact from "../models/contacts.model.js";
+import { validationResult } from "express-validator";
 
 export const getContacts = async (req, res) => {
   try {
@@ -30,7 +31,6 @@ export const showContacts = async (req, res) => {
 
   try {
     if (!paramId) {
-
       res.render("404", {
         message: "The page you are looking for does not exist.",
       });
@@ -77,6 +77,11 @@ export const updateContactPage = async (req, res) => {
 };
 
 export const addContact = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    // res.send(errors);
+     return res.status(400).json({ errors: errors.array() });
+  }
   try {
     await Contact.insertOne({
       first_name: req.body.first_name,
